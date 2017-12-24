@@ -2,8 +2,8 @@ package Instruction;
 
 public class HaltInstr extends Instr {
 
-  public HaltInstr() {
-    super(InstrType.HALT);
+  public HaltInstr(int index) {
+    super(InstrType.HALT, index);
   }
 
   @Override

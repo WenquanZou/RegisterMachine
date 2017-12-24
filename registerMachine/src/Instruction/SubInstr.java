@@ -6,8 +6,9 @@ public class SubInstr extends Instr {
   int next;
   int alter;
 
-  public SubInstr(Register operand, int next, int alter) {
-    super(InstrType.SUB);
+  public SubInstr(int index, Register operand, int next, int alter) {
+    super(InstrType.SUB, index);
+    this.operand = operand;
     this.next = next;
     this.alter = alter;
   }

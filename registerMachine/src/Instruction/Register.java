@@ -1,5 +1,7 @@
 package Instruction;
 
+import java.util.StringTokenizer;
+
 public class Register {
   final int index;
   int value;
@@ -20,5 +22,10 @@ public class Register {
 
   public void decrement() {
     this.value--;
+  }
+
+  public static Register parse(String string) {
+    StringTokenizer st = new StringTokenizer(string, "R");
+    return new Register(Integer.parseInt(st.nextToken()), 0);
   }
 }
