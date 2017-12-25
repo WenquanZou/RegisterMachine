@@ -23,6 +23,9 @@ public class Configuration {
   }
 
   public Register getReg(int regIndex) {
+    if (!registers.containsKey(regIndex)) {
+      registers.put(regIndex, new Register(regIndex));
+    }
     return registers.get(regIndex);
   }
 }
