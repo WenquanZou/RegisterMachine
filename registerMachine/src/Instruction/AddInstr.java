@@ -1,17 +1,22 @@
 package Instruction;
 
-public class AddInstr extends Instr {
-  Register operand;
-  int next;
+import Memory.Configuration;
 
-  public AddInstr(int index, Register operand, int next) {
+import java.util.List;
+
+public class AddInstr extends Instr {
+  private int regIndex;
+  private int next;
+
+  public AddInstr(int index, int regIndex, int next) {
     super(InstrType.ADD, index);
-    this.operand = operand;
+    this.regIndex = regIndex;
     this.next = next;
   }
 
   @Override
-  public void execute() {
-    this.operand.increment();
+  public void execute(Configuration memory, List<Instr> instrs) {
+    memory.getReg(regIndex).increment();
+    instrs.get(next).execute(memory, instrs);
   }
 }

@@ -1,5 +1,9 @@
 package Instruction;
 
+import Memory.Configuration;
+
+import java.util.List;
+
 public class HaltInstr extends Instr {
 
   public HaltInstr(int index) {
@@ -7,7 +11,7 @@ public class HaltInstr extends Instr {
   }
 
   @Override
-  public void execute() {
+  public void execute(Configuration memory, List<Instr> instrs) {
     //Halt do nothing
   }
 }
