@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Main {
+public class program {
   public static void main(String[] args) throws FileNotFoundException {
     List<Instr> instrs = new ArrayList<>();
     List<String> s1 = new FileInputParser(args[0]).getStrings();
