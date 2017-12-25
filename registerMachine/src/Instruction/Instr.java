@@ -7,8 +7,8 @@ import java.util.StringTokenizer;
 
 public abstract class Instr {
 
-  final InstrType type;
-  final int index;
+  private final InstrType type;
+  private final int index;
 
   Instr(InstrType type, int index) {
     this.type = type;
