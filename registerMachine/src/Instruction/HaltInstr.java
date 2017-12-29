@@ -2,6 +2,7 @@ package Instruction;
 
 import Memory.Configuration;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class HaltInstr extends Instr {
@@ -13,5 +14,10 @@ public class HaltInstr extends Instr {
   @Override
   public void execute(Configuration memory, List<Instr> instrs) {
     //Halt do nothing
+  }
+
+  @Override
+  public BigDecimal encode() {
+    return BigDecimal.valueOf(0);
   }
 }

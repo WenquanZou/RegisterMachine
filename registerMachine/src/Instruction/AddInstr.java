@@ -2,6 +2,7 @@ package Instruction;
 
 import Memory.Configuration;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class AddInstr extends Instr {
@@ -18,5 +19,10 @@ public class AddInstr extends Instr {
   public void execute(Configuration memory, List<Instr> instrs) {
     memory.getReg(regIndex).increment();
     instrs.get(next).execute(memory, instrs);
+  }
+
+  @Override
+  public BigDecimal encode() {
+    return null;
   }
 }

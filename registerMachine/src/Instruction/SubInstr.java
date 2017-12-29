@@ -2,6 +2,7 @@ package Instruction;
 
 import Memory.Configuration;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class SubInstr extends Instr {
@@ -25,5 +26,10 @@ public class SubInstr extends Instr {
     } else {
       instrs.get(alter).execute(memory, instrs);
     }
+  }
+
+  @Override
+  public BigDecimal encode() {
+    return null;
   }
 }

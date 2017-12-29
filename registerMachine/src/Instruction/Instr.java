@@ -2,6 +2,7 @@ package Instruction;
 
 import Memory.Configuration;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -40,4 +41,6 @@ public abstract class Instr {
         return new HaltInstr(index);
     }
   }
+
+  public abstract BigDecimal encode();
 }

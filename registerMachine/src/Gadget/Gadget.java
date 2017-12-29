@@ -17,4 +17,8 @@ public class Gadget {
   public void run(Configuration memory) {
     instrs.get(0).execute(memory, instrs);
   }
+
+  public List<Instr> getInstructions() {
+    return this.instrs;
+  }
 }
