@@ -1,8 +1,12 @@
 package Gadget;
 
+import static Encoder.Encoding.listEncode;
+
 import Instruction.Instr;
 import Memory.Configuration;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gadget {
@@ -20,5 +24,11 @@ public class Gadget {
 
   public List<Instr> getInstructions() {
     return this.instrs;
+  }
+
+  public BigDecimal encode() {
+    List<BigDecimal> numbers = new ArrayList<>();
+    this.instrs.forEach(instr -> numbers.add(instr.encode()));
+    return listEncode(numbers);
   }
 }

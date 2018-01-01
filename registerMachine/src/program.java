@@ -29,5 +29,6 @@ public class program {
     Emulator emulator = new Emulator(new Configuration(regs), new Gadget(instrs, "program"));
     emulator.emulate();
     emulator.printMemory();
+    System.out.println(emulator.getProgram());
   }
 }

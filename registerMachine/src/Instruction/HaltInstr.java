@@ -18,6 +18,6 @@ public class HaltInstr extends Instr {
 
   @Override
   public BigDecimal encode() {
-    return BigDecimal.valueOf(0);
+    return new BigDecimal(0);
   }
 }

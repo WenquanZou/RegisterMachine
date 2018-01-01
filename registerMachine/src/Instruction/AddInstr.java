@@ -1,5 +1,7 @@
 package Instruction;
 
+import static Encoder.Encoding.plusEncode;
+
 import Memory.Configuration;
 
 import java.math.BigDecimal;
@@ -23,6 +25,6 @@ public class AddInstr extends Instr {
 
   @Override
   public BigDecimal encode() {
-    return null;
+    return plusEncode(new BigDecimal(2 * this.regIndex), new BigDecimal(next));
   }
 }

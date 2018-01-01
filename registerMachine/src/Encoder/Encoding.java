@@ -8,14 +8,15 @@ import java.util.List;
 
 public class Encoding {
   public static Gadget decode(BigDecimal index) {
+    //TODO: write decode algorithm.
     return null;
   }
 
-  public static String encode(Gadget program) {
-    //Encode each instruction of program body.
-    List<Instr> instrs =  program.getInstructions();
-    instrs.forEach(Instr::encode);
-    return null;
+  public static BigDecimal listEncode(List<BigDecimal> items) {
+    if (items.size() == 0) {
+      return new BigDecimal(0);
+    }
+    return plusEncode(items.get(0), listEncode(items.subList(1, items.size())));
   }
 
   public static BigDecimal plusEncode(BigDecimal i, BigDecimal j) {

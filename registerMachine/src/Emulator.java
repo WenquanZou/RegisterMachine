@@ -6,6 +6,10 @@ public class Emulator {
   private Configuration memory;
   private Gadget program;
 
+  public Gadget getProgram() {
+    return program;
+  }
+
   public Emulator(Configuration memory, Gadget program) {
     this.memory = memory;
     this.program = program;

@@ -1,5 +1,8 @@
 package Instruction;
 
+import static Encoder.Encoding.natureEncode;
+import static Encoder.Encoding.plusEncode;
+
 import Memory.Configuration;
 
 import java.math.BigDecimal;
@@ -30,6 +33,7 @@ public class SubInstr extends Instr {
 
   @Override
   public BigDecimal encode() {
-    return null;
+    return plusEncode(new BigDecimal(2 * this.regIndex + 1)
+        , natureEncode(new BigDecimal(next), new BigDecimal(alter)));
   }
 }
