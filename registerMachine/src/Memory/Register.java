@@ -39,11 +39,12 @@ public class Register{
     return index;
   }
 
-  public int getValue() {
-    return value;
-  }
-
   public boolean isZero() {
     return value == 0;
+  }
+
+  @Override
+  public String toString() {
+    return "R" + index + " " + value;
   }
 }

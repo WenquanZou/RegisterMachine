@@ -13,11 +13,7 @@ public class Configuration {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     for (Register r : registers.values()) {
-      sb.append("R" + r.getIndex() + " ");
-    }
-    sb.append("\n");
-    for (Register r : registers.values()) {
-      sb.append(" " + r.getValue() + " ");
+      sb.append(r.toString()).append("\n");
     }
     return sb.toString();
   }

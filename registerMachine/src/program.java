@@ -1,3 +1,5 @@
+import static Encoder.Encoding.decode;
+
 import Gadget.Gadget;
 import IOsystem.FileInputParser;
 import Instruction.Instr;
@@ -5,6 +7,7 @@ import Memory.Configuration;
 import Memory.Register;
 
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +32,9 @@ public class program {
     Emulator emulator = new Emulator(new Configuration(regs), new Gadget(instrs, "program"));
     emulator.emulate();
     emulator.printMemory();
-    System.out.println(emulator.getProgram());
+    BigDecimal encode = emulator.getProgram().encode();
+    Emulator emulator2 = new Emulator(new Configuration(regs), decode(encode));
+    emulator2.emulate();
+    emulator2.printMemory();
   }
 }
