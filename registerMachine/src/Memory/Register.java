@@ -1,6 +1,5 @@
 package Memory;
 
-
 import java.util.StringTokenizer;
 
 public class Register{
