@@ -9,9 +9,12 @@ import Instruction.SubInstr;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 public class Encoding {
 
+  //-----Decode Process-----//
+  @NotNull
   public static Gadget decode(BigDecimal index) {
     List<BigDecimal> elems = new ArrayList<>();
     while (index.compareTo(BigDecimal.ZERO) != 0) {
@@ -26,21 +29,7 @@ public class Encoding {
     return new Gadget(instrs, "program");
   }
 
-  private static List<BigDecimal> decodePair(BigDecimal elem) {
-    List<BigDecimal> result = new ArrayList<>();
-    int fstFactor = 0;
-    BigDecimal two = new BigDecimal(2);
-    while (isDivisible(elem, two)) {
-      elem = elem.divide(two);
-      fstFactor++;
-    }
-    //First factor of plusEncode
-    result.add(new BigDecimal(fstFactor));
-    //Second factor of plusEncode
-    result.add(elem.subtract(BigDecimal.ONE).divide(two));
-    return result;
-  }
-
+  @NotNull
   private static Instr decodeElem(BigDecimal e, int index) {
     if (e.compareTo(BigDecimal.ZERO) == 0) {
       return new HaltInstr(index);
@@ -66,10 +55,28 @@ public class Encoding {
     return new SubInstr(index, regIndex.intValue(), nextIndex.intValue(), alterIndex.intValue());
   }
 
+  private static List<BigDecimal> decodePair(BigDecimal elem) {
+    List<BigDecimal> result = new ArrayList<>();
+    int fstFactor = 0;
+    BigDecimal two = new BigDecimal(2);
+    while (isDivisible(elem, two)) {
+      elem = elem.divide(two);
+      fstFactor++;
+    }
+    //First factor of plusEncode
+    result.add(new BigDecimal(fstFactor));
+    //Second factor of plusEncode
+    result.add(elem.subtract(BigDecimal.ONE).divide(two));
+    return result;
+  }
+
   private static boolean isDivisible(BigDecimal number, BigDecimal divisor) {
     return number.remainder(divisor) == BigDecimal.ZERO;
   }
+  //----End Decode Process---//
 
+
+  //-----Encode Process------//
   public static BigDecimal listEncode(List<BigDecimal> elems) {
     if (elems.size() == 0) {
       return new BigDecimal(0);
@@ -92,4 +99,5 @@ public class Encoding {
   public static BigDecimal natureEncode(BigDecimal i, BigDecimal j) {
     return plusEncode(i, j).subtract(BigDecimal.valueOf(1));
   }
+  //----End Encode Process---//
 }
