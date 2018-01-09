@@ -13,6 +13,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+public static void main(string[] args) {
+  sout blah blah blah
+}
+
 public class program {
   public static void main(String[] args) throws FileNotFoundException {
     //Get the instructions of program.
